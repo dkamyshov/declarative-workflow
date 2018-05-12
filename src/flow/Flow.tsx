@@ -19,6 +19,7 @@ export interface IFlowComponent {
 
 export interface IFlowTransition {
   label: string;
+  disableIfEmpty?: string[];
   to?: string;
   action?: string;
 }

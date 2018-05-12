@@ -5,6 +5,7 @@ import { IFlowScreen } from './Flow';
 import FlowComponent from './FlowComponent';
 import FlowButton from './FlowButton';
 import FlowStepCounter from './FlowStepCounter';
+import FlowTransition from './FlowTransition';
 
 interface FlowScreenProps {
   description: IFlowScreen;
@@ -40,61 +41,37 @@ class FlowScreen extends React.Component<FlowScreenProps> {
 
         {description.transitions.center ? (
           <div className={style['transition-center']}>
-            <FlowButton
-              label={description.transitions.center.label}
-              onClick={() => {
-                const transition = description.transitions.center;
-
-                if (transition) {
-                  if (transition.to) {
-                    goTo(transition.to);
-                  } else if (transition.action) {
-                    performAction(transition.action);
-                  }
-                }
-              }}
+            <FlowTransition
+              state={state}
+              description={description.transitions.center}
+              goTo={goTo}
+              performAction={performAction}
             />
           </div>
         ) : (
-          <div className={style['transition-container']}>
-            <div className={style['transition-element']}>
-              {description.transitions.left && (
-                <FlowButton
-                  label={description.transitions.left.label}
-                  onClick={() => {
-                    const transition = description.transitions.left;
-
-                    if (transition) {
-                      if (transition.to) {
-                        goTo(transition.to);
-                      } else if (transition.action) {
-                        performAction(transition.action);
-                      }
-                    }
-                  }}
-                />
-              )}
+            <div className={style['transition-container']}>
+              <div className={style['transition-element']}>
+                {description.transitions.left && (
+                  <FlowTransition
+                    description={description.transitions.left}
+                    goTo={goTo}
+                    performAction={performAction}
+                    state={state}
+                  />
+                )}
+              </div>
+              <div className={style['transition-element']}>
+                {description.transitions.right && (
+                  <FlowTransition
+                    description={description.transitions.right}
+                    goTo={goTo}
+                    performAction={performAction}
+                    state={state}
+                  />
+                )}
+              </div>
             </div>
-            <div className={style['transition-element']}>
-              {description.transitions.right && (
-                <FlowButton
-                  label={description.transitions.right.label}
-                  onClick={() => {
-                    const transition = description.transitions.right;
-
-                    if (transition) {
-                      if (transition.to) {
-                        goTo(transition.to);
-                      } else if (transition.action) {
-                        performAction(transition.action);
-                      }
-                    }
-                  }}
-                />
-              )}
-            </div>
-          </div>
-        )}
+          )}
 
         {description.stepCounter && (
           <FlowStepCounter stepCounter={description.stepCounter} />

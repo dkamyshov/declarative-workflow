@@ -96,6 +96,7 @@ export default {
 
         right: {
           label: 'Далее',
+          disableIfEmpty: ['chatName'],
           to: 'finish'
         }
       }
