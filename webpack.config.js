@@ -3,9 +3,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
+  devtool: 'source-map',
   output: {
     path: path.resolve('build'),
     filename: 'build.[hash].js',
+    chunkFilename: '[name].[hash].js',
     publicPath: '/'
   },
   resolve: {
