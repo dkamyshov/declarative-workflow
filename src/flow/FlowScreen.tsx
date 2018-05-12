@@ -49,29 +49,29 @@ class FlowScreen extends React.Component<FlowScreenProps> {
             />
           </div>
         ) : (
-            <div className={style['transition-container']}>
-              <div className={style['transition-element']}>
-                {description.transitions.left && (
-                  <FlowTransition
-                    description={description.transitions.left}
-                    goTo={goTo}
-                    performAction={performAction}
-                    state={state}
-                  />
-                )}
-              </div>
-              <div className={style['transition-element']}>
-                {description.transitions.right && (
-                  <FlowTransition
-                    description={description.transitions.right}
-                    goTo={goTo}
-                    performAction={performAction}
-                    state={state}
-                  />
-                )}
-              </div>
+          <div className={style['transition-container']}>
+            <div className={style['transition-element']}>
+              {description.transitions.left && (
+                <FlowTransition
+                  description={description.transitions.left}
+                  goTo={goTo}
+                  performAction={performAction}
+                  state={state}
+                />
+              )}
             </div>
-          )}
+            <div className={style['transition-element']}>
+              {description.transitions.right && (
+                <FlowTransition
+                  description={description.transitions.right}
+                  goTo={goTo}
+                  performAction={performAction}
+                  state={state}
+                />
+              )}
+            </div>
+          </div>
+        )}
 
         {description.stepCounter && (
           <FlowStepCounter stepCounter={description.stepCounter} />

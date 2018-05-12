@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     path: path.resolve('build'),
-    filename: 'build.js',
+    filename: 'build.[hash].js',
     publicPath: '/'
   },
   resolve: {

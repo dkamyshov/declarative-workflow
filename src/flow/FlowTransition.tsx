@@ -16,7 +16,7 @@ class FlowTransition extends React.Component<{
     } else if (description.action) {
       performAction(description.action);
     }
-  }
+  };
 
   render() {
     const { description, state } = this.props;
@@ -25,15 +25,19 @@ class FlowTransition extends React.Component<{
 
     if (description.disableIfEmpty) {
       disabled = description.disableIfEmpty.some(statePart => {
-        return typeof state[statePart] === 'undefined' || state[statePart] === '';
+        return (
+          typeof state[statePart] === 'undefined' || state[statePart] === ''
+        );
       });
     }
 
-    return <FlowButton
-      label={description.label}
-      onClick={this.onClick}
-      disabled={disabled}
-    />
+    return (
+      <FlowButton
+        label={description.label}
+        onClick={this.onClick}
+        disabled={disabled}
+      />
+    );
   }
 }
 

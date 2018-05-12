@@ -12,7 +12,11 @@ class FlowButton extends React.Component<FlowButtonProps> {
     const { label, onClick, disabled } = this.props;
 
     return (
-      <button className={style['flow-button']} onClick={onClick} disabled={disabled}>
+      <button
+        className={style['flow-button']}
+        onClick={onClick}
+        disabled={disabled}
+      >
         {label}
       </button>
     );

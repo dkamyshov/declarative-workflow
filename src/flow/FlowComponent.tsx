@@ -53,21 +53,6 @@ class FlowComponent extends React.Component<{
         if (!condition) return null;
         const conditionIsTrue = condition.equals === state[condition.name];
 
-        /*if(conditionIsTrue) {
-          const elements = condition.content.map((componentDescription, i) => {
-            return (
-              <FlowComponent
-                key={i}
-                state={state}
-                setFlowState={setFlowState}
-                description={componentDescription}
-              />
-            );
-          });
-
-          return elements;
-        }*/
-
         if (conditionIsTrue) {
           const elements: JSX.Element[] = [];
 
