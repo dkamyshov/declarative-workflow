@@ -1,0 +1,85 @@
+h1 {
+  margin: 8pt;
+}
+
+p {
+  margin: 8pt;
+}
+
+.flow-screen {
+}
+
+.flow-component-select {
+  margin: 8pt;
+  label {
+    display: block;
+    color: gray;
+    font-size: 14pt;
+    margin-bottom: 1pt;
+  }
+  select {
+    display: block;
+    padding: 2pt;
+    width: 100%;
+  }
+}
+
+.flow-component-input {
+  margin: 8pt;
+  label {
+    display: block;
+    color: gray;
+    font-size: 14pt;
+    margin-bottom: 1pt;
+  }
+  input {
+    display: block;
+    padding: 2pt;
+    width: 100%;
+  }
+}
+
+.flow-button {
+  margin: 2pt;
+  padding: 2pt;
+}
+
+.transition-center {
+  display: flex;
+  justify-content: center;
+}
+
+.transition-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  .transition-element {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.step-counter-container {
+  display: block;
+  width: 100%;
+  text-align: center;
+
+  .step-counter {
+    display: inline-flex;
+    flex-direction: row;
+
+    .step-counter-element {
+      width: 8px;
+      height: 8px;
+      margin: 4pt;
+      border-radius: 8px;
+      background-color: gray;
+
+      &.active {
+        background-color: black;
+      }
+    }
+  }
+}
